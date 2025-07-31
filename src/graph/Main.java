@@ -18,4 +18,13 @@ public class Main {
         System.out.println("Network Flow Algorithm ");
         Scanner scanner = new Scanner(System.in);
 
+        try {
+            String filename;
+            if (args.length > 0) {
+                filename = "benchmarks/" + args[0];
+            } else {
+                System.out.print("\nEnter input file name (e.g., bridge_1.txt): ");
+                filename = "benchmarks/" + scanner.nextLine();
+            }
+
 }
