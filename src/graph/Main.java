@@ -1,3 +1,4 @@
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -44,6 +45,21 @@ public class Main {
             if(choice.equalsIgnoreCase("y")) {
                 graph.printFlowDetails();
             }
+
+            } catch (FileNotFoundException e) {
+            System.err.println("Error: File not found - " + e.getMessage());
+        } catch (IOException e) {
+            System.err.println("I/O Error: " + e.getMessage());
+        } catch (IllegalArgumentException e) {
+            System.err.println("Invalid input: " + e.getMessage());
+        } catch (Exception e) {
+            System.err.println("Unexpected error: " + e.getMessage());
+            e.printStackTrace();
+        } finally {
+            scanner.close();
+            System.out.println("\nProgram terminated.");
+        }
+    }
 
 
 
