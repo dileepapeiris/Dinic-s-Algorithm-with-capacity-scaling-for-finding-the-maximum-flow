@@ -26,5 +26,11 @@ public class Main {
                 System.out.print("\nEnter input file name (e.g., bridge_1.txt): ");
                 filename = "benchmarks/" + scanner.nextLine();
             }
+            
+            FlowGraph graph = FileParser.readFromFile(filename);
+            Algorithm dinic = new Algorithm();
+
+
+
 
 }
