@@ -26,9 +26,25 @@ public class Main {
                 System.out.print("\nEnter input file name (e.g., bridge_1.txt): ");
                 filename = "benchmarks/" + scanner.nextLine();
             }
-            
+
             FlowGraph graph = FileParser.readFromFile(filename);
             Algorithm dinic = new Algorithm();
+
+             System.out.println("Computing max flow...");
+            long startTime =System.currentTimeMillis();
+            long maxFlow = dinic.maxFlow(graph, 0, graph.nodes - 1);
+            long endTime = System.currentTimeMillis();
+
+            System.out.println("\nResults:");
+            System.out.println("Max Flow: " + maxFlow);
+            System.out.println("Computation time: " + (endTime - startTime) + " ms");
+
+            System.out.print("\nShow detailed flow? (y/n): ");
+            String choice = scanner.nextLine().trim();
+            if(choice.equalsIgnoreCase("y")) {
+                graph.printFlowDetails();
+            }
+
 
 
 
